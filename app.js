@@ -1,6 +1,10 @@
-import express from 'express';
+import express from 'express'
+import HelloController from "./controllers/hello-controller.js"
+import UsersController from "./controllers/users/users-controller.js";
 
-const app = express();
-app.get('/hello', (req, res) => {res.send('Life is good!')})
-app.get('/', (req, res) => {res.send('Welcome to Full Stack Development!')})
-app.listen(4000);
+const app = express()
+HelloController(app)
+UsersController(app)
+
+// app.listen(4000)
+app.listen(process.env.PORT || 4000)
