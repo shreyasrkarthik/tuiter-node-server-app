@@ -34,9 +34,11 @@ const createTuit = async (req, res) => {
 }
 
 const deleteTuit = async (req, res) => {
-    const tuitdIdToDelete = req.body.tuit;
-    const status = await tuitsDao
-        .deleteTuit(tuitdIdToDelete);
+    const tuitdIdToDelete = req.params.tid;
+    console.log(req.params);
+
+    const status = await tuitsDao.deleteTuit(parseInt(tuitdIdToDelete));
+    console.log(status);
     // tuits = tuits.filter((t) =>
     //     t._id !== tuitdIdToDelete);
     res.json(status);
